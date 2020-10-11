@@ -3,15 +3,18 @@ import time
 from datetime import date
 from dotenv import load_dotenv
 from flask import Flask, jsonify, Response
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 
 load_dotenv()
 
 # Set up Flask app with flask-session
 app = Flask(__name__)
 CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 
 @app.route('/api/getuserdata/<user_id>')
+@cross_origin()
 def get_user_data(user_id):
     try:
         year_joined, profile_image, profile_url, user_name = server.goodreads_get_user_info(user_id)
@@ -55,6 +58,7 @@ def get_user_data(user_id):
 
 
 @app.route('/api/test')
+@cross_origin()
 def test_ping():
     return 'Hello World!'
 
