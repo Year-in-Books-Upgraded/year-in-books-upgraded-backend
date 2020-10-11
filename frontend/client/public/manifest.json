@@ -1,9 +1,0 @@
-{
-  "short_name": "Year in Books Upgraded",
-  "name": "Year in Books Upgraded",
-  "icons": [],
-  "start_url": "/login",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
-}
